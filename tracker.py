@@ -17,10 +17,8 @@ print()
 
 name = input("What's your name? ")
 print("Welcome,", name + "! Let's log two expenses.")
-
 item1 = input("First expense? ")
 amount1 = float(input("Amount? "))
-
 item2 = input("Second expense? ")
 amount2 = float(input("Amount? "))
 
