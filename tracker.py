@@ -1,6 +1,6 @@
-# Project: Expense Tracker - Installment 2
-# Author: Heirosdule Nadala
-# Simple expense tracker that asks the user for two expenses
+# Project: Expense Tracker - Installment 3
+# Author: Your Full Name
+# Expense tracker that does math (subtotal, tax, budget)
 
 print("=" * 40)
 print(" " * 10 + "EXPENSE TRACKER")
@@ -17,20 +17,37 @@ print()
 
 name = input("What's your name? ")
 print("Welcome,", name + "! Let's log two expenses.")
+
+subtotal = 0
+
 item1 = input("First expense? ")
 amount1 = float(input("Amount? "))
+subtotal = subtotal + amount1
+
 item2 = input("Second expense? ")
 amount2 = float(input("Amount? "))
+subtotal = subtotal + amount2
 
-total = amount1 + amount2
-average = total / 2
+average = subtotal / 2
+
+tax_percent = float(input("Tax rate %? "))
+tax = subtotal * (tax_percent / 100)
+total = subtotal + tax
+
+budget = float(input("Your budget? "))
+over_budget = total > budget
+left = budget - total
 
 print()
 print("-" * 40)
 print("SUMMARY")
-print("  -", item1 + ":" + " " * (12 - len(item1)), "$" + str(amount1))
-print("  -", item2 + ":" + " " * (12 - len(item2)), "$" + str(amount2))
-print("Total spent:" + " " * 4, "$" + str(total))
-print("Average:" + " " * 8, "$" + str(average))
+print("  -", item1 + ":\t$" + str(amount1))
+print("  -", item2 + ":\t$" + str(amount2))
+print("Subtotal:\t$" + str(subtotal))
+print("Average:\t$" + str(average))
+print("Tax (" + str(tax_percent) + "%):\t$" + str(tax))
+print("Grand total:\t$" + str(total))
+print("Over budget?\t" + str(over_budget))
+print("Left in budget:\t$" + str(left))
 print("-" * 40)
-print("Made by:", name, "|  Installment 2")
+print("Made by:", name, "|  Installment 3")
